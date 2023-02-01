@@ -1,15 +1,5 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$dbname = "store";
+include 'config.php';
 
-// Create connection
-$conn = mysqli_connect($host, $user, $password, $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+$con=mysqli_connect($database_host,$database_user,$database_password,$database_name) or die(mysqli_error($con));
 ?>
-
