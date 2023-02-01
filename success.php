@@ -4,12 +4,14 @@
     if(!isset($_SESSION['email'])){
         header('location:index.php');
     }else{
-        $user_id=$_GET['id'];
-        $confirm_query="update users_items set status='Confirmed' where user_id=$user_id";
-        $confirm_query_result=mysqli_query($con,$confirm_query) or die(mysqli_error($con));
-        
+        $user_id = mysqli_real_escape_string($con, $_GET['id']);
+        $confirm_query="update users_items set status='Confirmed' where user_id=?";
+        $stmt = mysqli_prepare($con, $confirm_query);
+        mysqli_stmt_bind_param($stmt, "i", $user_id);
+        mysqli_stmt_execute($stmt) or die(mysqli_error($con));
     }
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
