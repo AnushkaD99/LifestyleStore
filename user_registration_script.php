@@ -10,7 +10,7 @@
         <meta http-equiv="refresh" content="2;url=signup.php" />
         <?php
     }
-    $password=md5(md5(mysqli_real_escape_string($con,$_POST['password'])));
+    $password = password_hash(mysqli_real_escape_string($con, $_POST['password']), PASSWORD_DEFAULT);
     if(strlen($password)<6){
         echo "Password should have atleast 6 characters. Redirecting you back to registration page...";
         ?>
