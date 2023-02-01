@@ -1,4 +1,15 @@
 <?php
-//$con=mysqli_connect("localhost","id2538044_sajalagrawal","******","id2538044_store") or die(mysqli_error($con));
-$con=mysqli_connect("localhost","root","","store") or die(mysqli_error($con));
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "store";
+
+// Create connection
+$conn = mysqli_connect($host, $user, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 ?>
+
